@@ -139,12 +139,11 @@ if uploaded_nii_file is not None:
     plot = col3.pyplot(fig2)
     
     if st.sidebar.button('3D visualisation'):
-        verts, faces, normals, values = measure.marching_cubes_lewiner(plotmask, 0.0, step_size= 5, allow_degenerate=False)
+        verts, faces, normals, values = measure.marching_cubes_lewiner(plotmask, 0.0, allow_degenerate=False)
         
-        fig4 = go.Figure(data=[go.Mesh3d(x=verts[:,0], y=verts[:,1], z=verts[:,2],
-                                        alphahull=5,
+        fig4 = go.Figure(data=[go.Mesh3d(x=verts[:,0], y=verts[:,1], z=verts[:,2], y=verts[:,1], z=verts[:,2], i=faces[:,0], j=faces[:,1], k=faces[:,2],
                                         opacity=0.6,
-                                        color='red')])
+                                        autocolorscale=True)])
         col4.plotly_chart(fig4)
 
 
