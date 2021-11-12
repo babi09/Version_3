@@ -16,7 +16,7 @@ import funcs_ha_use
 from PIL import Image
 from nibabel import FileHolder, Nifti1Image
 from io import BytesIO
-
+from skimage import measure
 
 # streamlit interface
 
@@ -137,4 +137,7 @@ if uploaded_nii_file is not None:
     plot = col1.pyplot(fig)
     plot = col2.pyplot(fig1)
     plot = col3.pyplot(fig2)
+    
+    if st.sidebar.button('3D visualisation'):
+        verts, faces, normals, values = measure.marching_cubes_lewiner(plotMask, 0.0)
 
