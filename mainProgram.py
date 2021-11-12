@@ -139,7 +139,7 @@ if uploaded_nii_file is not None:
     plot = col3.pyplot(fig2)
     
     if st.sidebar.button('3D visualisation'):
-        verts, faces, normals, values = measure.marching_cubes_lewiner(plotmask, 0.0)
+        verts, faces, normals, values = measure.marching_cubes_lewiner(plotmask, 0.0, step_size= 5, allow_degenerate=False)
         
         fig4 = go.Figure(data=[go.Mesh3d(x=verts[:,0], y=verts[:,1], z=verts[:,2],
                                         alphahull=5,
