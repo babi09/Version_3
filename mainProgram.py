@@ -143,17 +143,17 @@ if uploaded_nii_file is not None:
         
         cloud = pv.PolyData(verts).clean()
 
-        surf = cloud.delaunay_3d(alpha=3)
-        shell = surf.extract_geometry().triangulate()
+        surf = cloud.delaunay_3d(alpha=5)
+        #shell = surf.extract_geometry().triangulate()
         #decimated = shell.decimate(0.4).extract_surface().clean()
         #decimated.compute_normals(cell_normals=True, point_normals=False, inplace=True)
 
         #centers = decimated.cell_centers()
        # centers.translate(decimated['Normals'] * 10.0)
 
-        p = pv.Plotter(notebook=False)
-        p.add_mesh(shell, color="r")
-        p.link_views()
-        p.show()
+        #p = pv.Plotter(notebook=False)
+        #p.add_mesh(shell, color="r")
+        #p.link_views()
+        #p.show()
 
 
