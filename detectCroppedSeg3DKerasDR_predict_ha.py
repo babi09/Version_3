@@ -418,7 +418,7 @@ def singlePatientSegmentation(params, pName, maskDetect, boxDetect, kidneyNone, 
     # write kidney segmentation masks to file
     #funcs_ha_use.writeMasks(pName,reconMethod,Masks2Save,1);
     
-    return Masks2Save
+    return Masks2Save, maskSegment
     
 # # path to .xls spreadsheet that contains temporal information about each
 # # test subject (pName)
