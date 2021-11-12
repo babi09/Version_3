@@ -18,6 +18,7 @@ from nibabel import FileHolder, Nifti1Image
 from io import BytesIO
 from skimage import measure
 import pyvista as pv
+import plotly.graph_objects as go
 # streamlit interface
 
 st.sidebar.title('Organ Detection and Segmentation')
@@ -141,20 +142,10 @@ if uploaded_nii_file is not None:
     if st.sidebar.button('3D visualisation'):
         verts, faces, normals, values = measure.marching_cubes_lewiner(plotmask, 0.0)
         
-        cloud = pv.PolyData(verts).clean()
-
-        surf = cloud.delaunay_3d(alpha=5)
-        surf.plot()
-        #shell = surf.extract_geometry().triangulate()
-        #decimated = shell.decimate(0.4).extract_surface().clean()
-        #decimated.compute_normals(cell_normals=True, point_normals=False, inplace=True)
-
-        #centers = decimated.cell_centers()
-       # centers.translate(decimated['Normals'] * 10.0)
-
-        #p = pv.Plotter(notebook=False)
-        #p.add_mesh(shell, color="r")
-        #p.link_views()
-        #p.show()
+        fig4 = go.Figure(data=[go.Mesh3d(x=verts[:,0], y=verts[:,1], z=verts[:,2],
+                                        alphahull=5,
+                                        opacity=0.6,
+                                        color='red')])
+        col4.plotly_chart(fig4)
 
 
