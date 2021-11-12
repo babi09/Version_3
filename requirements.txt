@@ -12,3 +12,4 @@ opencv-python-headless
 vtk
 pyvista
 PyQt5
+plotly
