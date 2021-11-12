@@ -144,6 +144,7 @@ if uploaded_nii_file is not None:
         cloud = pv.PolyData(verts).clean()
 
         surf = cloud.delaunay_3d(alpha=5)
+        surf.plot()
         #shell = surf.extract_geometry().triangulate()
         #decimated = shell.decimate(0.4).extract_surface().clean()
         #decimated.compute_normals(cell_normals=True, point_normals=False, inplace=True)
