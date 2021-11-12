@@ -17,7 +17,6 @@ from PIL import Image
 from nibabel import FileHolder, Nifti1Image
 from io import BytesIO
 from skimage import measure
-import pyvista as pv
 import plotly.graph_objects as go
 # streamlit interface
 
