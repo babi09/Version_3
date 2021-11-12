@@ -139,5 +139,5 @@ if uploaded_nii_file is not None:
     plot = col3.pyplot(fig2)
     
     if st.sidebar.button('3D visualisation'):
-        verts, faces, normals, values = measure.marching_cubes_lewiner(plotMask, 0.0)
+        verts, faces, normals, values = measure.marching_cubes_lewiner(plotmask, 0.0)
 
